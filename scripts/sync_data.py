@@ -3,11 +3,34 @@ import os
 import json
 import requests
 from datetime import datetime
+from pathlib import Path
 
-# Configuration
-SPREADSHEET_ID = os.environ.get('GOOGLE_SHEETS_ID', 'YOUR_SPREADSHEET_ID')
-API_KEY = os.environ.get('GOOGLE_API_KEY', 'YOUR_API_KEY')
+# Load environment variables from .env file for local development
+def load_env_file():
+    """Load environment variables from .env file if it exists"""
+    env_file = Path(__file__).parent.parent / '.env'
+    if env_file.exists():
+        with open(env_file, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#') and '=' in line:
+                    key, value = line.split('=', 1)
+                    os.environ[key] = value
+
+# Load .env file for local development
+load_env_file()
+
+# Configuration - use environment variables for security
+SPREADSHEET_ID = os.environ.get('GOOGLE_SHEETS_ID')
+API_KEY = os.environ.get('GOOGLE_API_KEY')
 SHEET_NAME = 'Businesses'  # Name of the sheet tab
+
+if not SPREADSHEET_ID or not API_KEY:
+    print("Error: Missing required environment variables!")
+    print("Please set GOOGLE_SHEETS_ID and GOOGLE_API_KEY")
+    print("For local development, create a .env file based on .env.example")
+    print("For GitHub Actions, set these as repository secrets")
+    exit(1)
 
 def fetch_sheet_data():
     """Fetch data from Google Sheets API"""

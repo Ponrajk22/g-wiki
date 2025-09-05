@@ -32,12 +32,19 @@ A community business directory that uses Google Sheets as a data source and GitH
 ### 2. Configure the Site
 
 1. Fork this repository
-2. Update `_config.yml`:
-   ```yaml
-   google_sheets:
-     spreadsheet_id: "YOUR_SPREADSHEET_ID"
-     api_key: "YOUR_API_KEY"
+2. **IMPORTANT: Never put API keys in your code!** Instead:
+   
+   **For local development:**
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your actual values
    ```
+   
+   **For GitHub deployment:**
+   - Go to your repository Settings → Secrets and Variables → Actions
+   - Add secrets:
+     - `GOOGLE_SHEETS_ID`: Your spreadsheet ID
+     - `GOOGLE_API_KEY`: Your API key
 
 3. Update repository and URL settings in `_config.yml`
 
@@ -62,12 +69,19 @@ bundle exec jekyll serve
 
 ## Environment Variables
 
-For security, set these as environment variables instead of hardcoding:
+**🔒 Security First: Never commit API keys to your repository!**
 
+For local development, create a `.env` file:
 ```bash
-export GOOGLE_SHEETS_ID="your_spreadsheet_id"
-export GOOGLE_API_KEY="your_api_key"
+cp .env.example .env
+# Edit .env with your actual values
 ```
+
+For GitHub deployment, set these as repository secrets:
+- `GOOGLE_SHEETS_ID`: Your spreadsheet ID  
+- `GOOGLE_API_KEY`: Your API key
+
+The script will automatically use environment variables from either source.
 
 ## File Structure
 
@@ -98,6 +112,15 @@ Set up GitHub Actions to automatically sync data:
 1. Add/edit businesses in the Google Sheet
 2. The sync script will generate updated pages
 3. Submit a pull request with the changes
+
+## Security Best Practices
+
+- ✅ **DO:** Use environment variables for API keys
+- ✅ **DO:** Set secrets in GitHub repository settings
+- ✅ **DO:** Use `.env` files for local development (git-ignored)
+- ❌ **DON'T:** Put API keys directly in code
+- ❌ **DON'T:** Commit `.env` files to git
+- ❌ **DON'T:** Share API keys in public channels
 
 ## Customization
 

@@ -13,9 +13,10 @@ plugins:
   - jekyll-seo-tag
 
 # Google Sheets configuration
+# NOTE: Do NOT put actual API keys here - use environment variables instead
 google_sheets:
   spreadsheet_id: "YOUR_SPREADSHEET_ID" # Replace with your Google Sheets ID
-  api_key: "YOUR_API_KEY" # Replace with your Google Sheets API key
+  # API key should be set as environment variable GOOGLE_API_KEY
   
 # Site settings
 timezone: America/New_York
