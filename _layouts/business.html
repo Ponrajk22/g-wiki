@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+<article class="business">
+  <header class="business-header">
+    <h1>{{ page.title }}</h1>
+    <p class="business-category">{{ page.category }}</p>
+  </header>
+
+  <div class="business-content">
+    {{ content }}
+  </div>
+
+  <div class="business-contact">
+    <h2>Contact Information</h2>
+    {% if page.phone %}
+      <p><strong>Phone:</strong> <a href="tel:{{ page.phone }}">{{ page.phone }}</a></p>
+    {% endif %}
+    
+    {% if page.website %}
+      <p><strong>Website:</strong> <a href="{{ page.website }}" target="_blank" rel="noopener">{{ page.website }}</a></p>
+    {% endif %}
+    
+    {% if page.address %}
+      <p><strong>Address:</strong> {{ page.address }}</p>
+    {% endif %}
+  </div>
+
+  <div class="business-actions">
+    <a href="/" class="btn">← Back to Directory</a>
+    <a href="/categories/" class="btn">Browse Categories</a>
+  </div>
+</article>
+
+<style>
+.business-header {
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.business-header h1 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.business-category {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.business-content {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.business-contact {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.business-contact h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.business-contact p {
+  margin: 0.5rem 0;
+}
+
+.business-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #2980b9;
+  color: white;
+  text-decoration: none;
+}
+</style>

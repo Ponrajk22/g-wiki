@@ -1,0 +1,44 @@
+title: "G-Wiki - Google Sheets Business Directory"
+description: "A business directory wiki powered by Google Sheets and GitHub Pages"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yourusername.github.io" # Change this to your GitHub Pages URL
+repository: "yourusername/g-wiki" # Change this to your repository
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Google Sheets configuration
+google_sheets:
+  spreadsheet_id: "YOUR_SPREADSHEET_ID" # Replace with your Google Sheets ID
+  api_key: "YOUR_API_KEY" # Replace with your Google Sheets API key
+  
+# Site settings
+timezone: America/New_York
+encoding: utf-8
+show_excerpts: false
+
+# Navigation
+header_pages:
+  - index.md
+  - categories.md
+  - about.md
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - scripts/
