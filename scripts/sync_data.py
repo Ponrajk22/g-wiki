@@ -80,23 +80,32 @@ def generate_json_data(businesses):
         'businesses': businesses
     }
     
-    # Create api directory if it doesn't exist
-    os.makedirs('api', exist_ok=True)
+    # Get the project root directory (parent of scripts directory)
+    project_root = Path(__file__).parent.parent
+    api_dir = project_root / 'api'
     
-    with open('api/businesses.json', 'w') as f:
+    # Create api directory if it doesn't exist
+    api_dir.mkdir(exist_ok=True)
+    
+    json_file = api_dir / 'businesses.json'
+    with open(json_file, 'w') as f:
         json.dump(data, f, indent=2)
     
-    print(f"Generated api/businesses.json with {len(businesses)} businesses")
+    print(f"Generated {json_file} with {len(businesses)} businesses")
 
 def generate_business_pages(businesses):
     """Generate individual business pages"""
-    os.makedirs('_businesses', exist_ok=True)
+    # Get the project root directory (parent of scripts directory)
+    project_root = Path(__file__).parent.parent
+    businesses_dir = project_root / '_businesses'
+    
+    businesses_dir.mkdir(exist_ok=True)
     
     for business in businesses:
         if not business.get('name'):
             continue
             
-        filename = f"_businesses/{business['slug']}.md"
+        filename = businesses_dir / f"{business['slug']}.md"
         
         # Build contact info sections
         phone_section = f"**Phone:** {business.get('phone', '')}" if business.get('phone') else ""
@@ -131,7 +140,7 @@ slug: "{business['slug']}"
         with open(filename, 'w') as f:
             f.write(content)
     
-    print(f"Generated {len(businesses)} business pages")
+    print(f"Generated {len(businesses)} business pages in {businesses_dir}")
 
 def main():
     print("Fetching data from Google Sheets...")
