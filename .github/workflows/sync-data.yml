@@ -25,11 +25,34 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
         
+    - name: Check GitHub Context and Secrets
+      run: |
+        echo "=== GitHub Context Information ==="
+        echo "Repository: ${{ github.repository }}"
+        echo "Actor: ${{ github.actor }}"
+        echo "Event: ${{ github.event_name }}"
+        echo "Ref: ${{ github.ref }}"
+        echo ""
+        echo "=== Available Secrets (checking if they exist) ==="
+        echo "GOOGLE_SHEETS_ID secret exists: ${{ secrets.GOOGLE_SHEETS_ID != '' }}"
+        echo "GOOGLE_API_KEY secret exists: ${{ secrets.GOOGLE_API_KEY != '' }}"
+        echo ""
+        echo "=== Environment Variables ==="
+        env | grep -E "(GOOGLE|SHEET|API)" || echo "No GOOGLE/SHEET/API environment variables found"
+        
     - name: Test secrets configuration
       env:
         GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
       run: |
+        echo "=== Testing Direct Secret Access ==="
+        echo "GOOGLE_SHEETS_ID from secret: '${{ secrets.GOOGLE_SHEETS_ID }}'"
+        echo "GOOGLE_API_KEY from secret: '${{ secrets.GOOGLE_API_KEY }}'"
+        echo ""
+        echo "=== Testing Environment Variables ==="
+        echo "GOOGLE_SHEETS_ID env var: '$GOOGLE_SHEETS_ID'"
+        echo "GOOGLE_API_KEY env var: '$GOOGLE_API_KEY'"
+        echo ""
         cd scripts
         python test_secrets.py
         
