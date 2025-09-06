@@ -98,6 +98,12 @@ def generate_business_pages(businesses):
             
         filename = f"_businesses/{business['slug']}.md"
         
+        # Build contact info sections
+        phone_section = f"**Phone:** {business.get('phone', '')}" if business.get('phone') else ""
+        website_section = f"**Website:** [{business.get('website', '')}]({business.get('website', '')})" if business.get('website') else ""
+        address_section = f"**Address:** {business.get('address', '')}" if business.get('address') else ""
+        additional_info_section = f"## Additional Info\n{business.get('additional_info', '')}" if business.get('additional_info') else ""
+        
         content = f"""---
 layout: business
 title: "{business.get('name', '')}"
@@ -112,14 +118,14 @@ slug: "{business['slug']}"
 
 ## Contact Information
 
-{f"**Phone:** {business.get('phone', '')}" if business.get('phone') else ""}
-{f"**Website:** [{business.get('website', '')}]({business.get('website', '')})" if business.get('website') else ""}
-{f"**Address:** {business.get('address', '')}" if business.get('address') else ""}
+{phone_section}
+{website_section}
+{address_section}
 
 ## Category
 {business.get('category', '')}
 
-{f"## Additional Info\\n{business.get('additional_info', '')}" if business.get('additional_info') else ""}
+{additional_info_section}
 """
         
         with open(filename, 'w') as f:

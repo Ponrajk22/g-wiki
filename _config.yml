@@ -12,6 +12,12 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Collections
+collections:
+  businesses:
+    output: true
+    permalink: /business/:name/
+
 # Google Sheets configuration
 # NOTE: Do NOT put actual API keys here - use environment variables instead
 google_sheets:
