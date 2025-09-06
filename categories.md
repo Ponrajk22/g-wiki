@@ -9,63 +9,7 @@ title: Categories
   <div class="loading">Loading categories...</div>
 </div>
 
-<script>
-async function loadCategories() {
-  try {
-    const response = await fetch('/api/businesses.json');
-    const data = await response.json();
-    displayCategories(data.businesses);
-  } catch (error) {
-    document.getElementById('categories-container').innerHTML = 
-      '<p>Error loading categories. Please try again later.</p>';
-  }
-}
-
-function displayCategories(businesses) {
-  const container = document.getElementById('categories-container');
-  
-  if (!businesses || businesses.length === 0) {
-    container.innerHTML = '<p>No categories found.</p>';
-    return;
-  }
-  
-  // Group businesses by category
-  const categories = {};
-  businesses.forEach(business => {
-    const category = business.category || 'Uncategorized';
-    if (!categories[category]) {
-      categories[category] = [];
-    }
-    categories[category].push(business);
-  });
-  
-  // Sort categories alphabetically
-  const sortedCategories = Object.keys(categories).sort();
-  
-  const html = sortedCategories.map(category => `
-    <div class="category-section">
-      <h2>${category}</h2>
-      <div class="businesses-grid">
-        ${categories[category].map(business => `
-          <div class="business-card">
-            <h3><a href="/business/${business.slug}/">${business.name}</a></h3>
-            <p class="description">${business.description || ''}</p>
-            <div class="contact-info">
-              ${business.phone ? `<span class="phone">📞 ${business.phone}</span>` : ''}
-              ${business.website ? `<a href="${business.website}" target="_blank">🌐 Website</a>` : ''}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-  
-  container.innerHTML = html;
-}
-
-// Load categories when page loads
-document.addEventListener('DOMContentLoaded', loadCategories);
-</script>
+<script src="{{ site.baseurl }}/assets/js/categories.js"></script>
 
 <style>
 .category-section {
