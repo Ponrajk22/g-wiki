@@ -56,18 +56,39 @@
 <script>
 // Fetch businesses from Google Sheets
 async function loadBusinesses() {
+  const container = document.getElementById('businesses-container');
+  
   try {
+    console.log('Fetching businesses from /api/businesses.json');
     const response = await fetch('/api/businesses.json');
+    
+    console.log('Response status:', response.status);
+    console.log('Response ok:', response.ok);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
     const data = await response.json();
+    console.log('Data received:', data);
+    
+    if (!data.businesses) {
+      throw new Error('No businesses property in response');
+    }
+    
     displayBusinesses(data.businesses);
   } catch (error) {
-    document.getElementById('businesses-container').innerHTML = 
-      '<p>Error loading businesses. Please try again later.</p>';
+    console.error('Error loading businesses:', error);
+    container.innerHTML = 
+      `<p>Error loading businesses: ${error.message}. Please try again later.</p>
+       <p><small>Check the browser console for more details.</small></p>`;
   }
 }
 
 function displayBusinesses(businesses) {
   const container = document.getElementById('businesses-container');
+  
+  console.log('Displaying businesses:', businesses);
   
   if (!businesses || businesses.length === 0) {
     container.innerHTML = '<p>No businesses found.</p>';
@@ -87,10 +108,14 @@ function displayBusinesses(businesses) {
   `).join('');
   
   container.innerHTML = html;
+  console.log('Businesses displayed successfully');
 }
 
 // Load businesses when page loads
-document.addEventListener('DOMContentLoaded', loadBusinesses);
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM loaded, loading businesses...');
+  loadBusinesses();
+});
 </script>
 
 <style>
