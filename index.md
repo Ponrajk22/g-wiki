@@ -23,8 +23,12 @@ async function loadBusinesses() {
   const container = document.getElementById('businesses-container');
   
   try {
-    console.log('Fetching businesses from /api/businesses.json');
-    const response = await fetch('/api/businesses.json');
+    // Use Jekyll baseurl for GitHub Pages compatibility
+    const baseUrl = '{{ site.baseurl }}';
+    const apiUrl = `${baseUrl}/api/businesses.json`;
+    console.log('Fetching businesses from', apiUrl);
+    
+    const response = await fetch(apiUrl);
     
     console.log('Response status:', response.status);
     console.log('Response ok:', response.ok);
@@ -59,9 +63,12 @@ function displayBusinesses(businesses) {
     return;
   }
   
+  // Use Jekyll baseurl for GitHub Pages compatibility
+  const baseUrl = '{{ site.baseurl }}';
+  
   const html = businesses.map(business => `
     <div class="business-card">
-      <h3><a href="/business/${business.slug}/">${business.name}</a></h3>
+      <h3><a href="${baseUrl}/business/${business.slug}/">${business.name}</a></h3>
       <p class="category">${business.category}</p>
       <p class="description">${business.description}</p>
       <div class="contact-info">

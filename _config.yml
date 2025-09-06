@@ -1,8 +1,8 @@
 title: "G-Wiki - Google Sheets Business Directory"
 description: "A business directory wiki powered by Google Sheets and GitHub Pages"
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yourusername.github.io" # Change this to your GitHub Pages URL
-repository: "yourusername/g-wiki" # Change this to your repository
+baseurl: "/g-wiki" # the subpath of your site, e.g. /blog
+url: "https://ponrajk22.github.io" # Change this to your GitHub Pages URL
+repository: "Ponrajk22/g-wiki" # Change this to your repository
 
 # Build settings
 markdown: kramdown
