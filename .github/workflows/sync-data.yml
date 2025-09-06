@@ -25,6 +25,33 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
         
+    - name: Test secrets configuration
+      env:
+        GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      run: |
+        cd scripts
+        python test_secrets.py
+        
+    - name: Debug environment variables
+      env:
+        GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      run: |
+        echo "Checking environment variables..."
+        echo "GOOGLE_SHEETS_ID length: ${#GOOGLE_SHEETS_ID}"
+        echo "GOOGLE_API_KEY length: ${#GOOGLE_API_KEY}"
+        if [ -z "$GOOGLE_SHEETS_ID" ]; then
+          echo "ERROR: GOOGLE_SHEETS_ID is empty or not set"
+        else
+          echo "GOOGLE_SHEETS_ID is set (length: ${#GOOGLE_SHEETS_ID})"
+        fi
+        if [ -z "$GOOGLE_API_KEY" ]; then
+          echo "ERROR: GOOGLE_API_KEY is empty or not set"
+        else
+          echo "GOOGLE_API_KEY is set (length: ${#GOOGLE_API_KEY})"
+        fi
+        
     - name: Sync data from Google Sheets
       env:
         GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
