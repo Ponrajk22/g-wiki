@@ -171,7 +171,7 @@ body {
 
 .business-card .category {
   background: var(--primary-light);
-  color: white;
+  color: white !important;
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
   font-size: 0.875rem;
