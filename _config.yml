@@ -21,7 +21,7 @@ collections:
 # Google Sheets configuration
 # NOTE: Do NOT put actual API keys here - use environment variables instead
 google_sheets:
-  spreadsheet_id: "YOUR_SPREADSHEET_ID" # Replace with your Google Sheets ID
+  spreadsheet_id: "1AhvzfKKUWTmApBQDCrMpwrY0iYhWzugyMepPucsvF3Y" # Replace with your Google Sheets ID
   # API key should be set as environment variable GOOGLE_API_KEY
   
 # Site settings
