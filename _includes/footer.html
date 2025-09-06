@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>{{ site.title | escape }}</h3>
+    <p>{{ site.description | escape }}</p>
+    
+    <div class="footer-links">
+      <a href="{{ "/" | relative_url }}">Home</a>
+      <a href="{{ "/categories/" | relative_url }}">Categories</a>
+      <a href="{{ "/about/" | relative_url }}">About</a>
+      <a href="https://github.com/{{ site.repository }}" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ "now" | date: "%Y" }} {{ site.title | escape }}. Built with Jekyll and hosted on GitHub Pages.</p>
+      <p>Powered by Google Sheets API • Community Driven • Open Source</p>
+    </div>
+  </div>
+</footer>

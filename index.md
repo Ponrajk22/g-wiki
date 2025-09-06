@@ -2,8 +2,6 @@
 layout: home
 ---
 
-# Welcome to G-Wiki
-
 A community business directory powered by Google Sheets and GitHub Pages. Our data is sourced from a collaborative Google Sheet, making it easy for community members to contribute and maintain up-to-date business information.
 
 ## Features
