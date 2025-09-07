@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About
+title: Contributing
 ---
 
 # About G-Wiki
@@ -18,7 +18,7 @@ G-Wiki is a community-driven business directory that combines the ease of Google
 
 To add or update a business listing:
 
-1. Access our [Google Sheet](https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID) (replace with actual link)
+1. Access our [Google Sheet](https://docs.google.com/spreadsheets/d/1AhvzfKKUWTmApBQDCrMpwrY0iYhWzugyMepPucsvF3Y)
 2. Add or edit business information
 3. The website will automatically update with your changes
 
