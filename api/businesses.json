@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-09-07T02:28:44.192822",
+  "last_updated": "2025-09-07T03:15:00.640336",
   "businesses": [
     {
       "name": "Ponraj",
@@ -10,6 +10,106 @@
       "address": "",
       "additional_info": "Ponraj",
       "slug": "ponraj"
+    },
+    {
+      "name": "Tamil Groceries Melbourne",
+      "category": "Grocery",
+      "description": "Fresh Tamil groceries and spices",
+      "phone": "03 9555 1234",
+      "website": "https://tamilgroceries.com.au",
+      "address": "123 High Street, Footscray VIC 3011",
+      "additional_info": "Open 7 days, Home delivery available",
+      "slug": "tamil-groceries-melbourne"
+    },
+    {
+      "name": "Saraswathi Music Academy",
+      "category": "Education",
+      "description": "Classical Tamil and Carnatic music lessons",
+      "phone": "0412 345 678",
+      "website": "https://saraswathimusic.com",
+      "address": "456 Station Road, West Footscray VIC 3012",
+      "additional_info": "Kids and adult classes, Online lessons",
+      "slug": "saraswathi-music-academy"
+    },
+    {
+      "name": "Murugan Restaurant",
+      "category": "Restaurant",
+      "description": "Authentic South Indian vegetarian cuisine",
+      "phone": "03 9687 5432",
+      "website": "https://muruganrestaurant.com.au",
+      "address": "789 Barkly Street, Footscray VIC 3011",
+      "additional_info": "Dosa, Idli, Traditional meals, Catering services",
+      "slug": "murugan-restaurant"
+    },
+    {
+      "name": "Chennai Auto Repairs",
+      "category": "Automotive",
+      "description": "Professional car servicing and repairs",
+      "phone": "0423 789 012",
+      "website": "",
+      "address": "321 Geelong Road, West Footscray VIC 3012",
+      "additional_info": "Specializes in Indian car models",
+      "slug": "chennai-auto-repairs"
+    },
+    {
+      "name": "Bharathi Beauty Salon",
+      "category": "Beauty",
+      "description": "Hair styling, threading, and bridal makeup",
+      "phone": "0434 567 890",
+      "website": "https://bharathibeauty.com",
+      "address": "654 Nicholson Street, Footscray VIC 3011",
+      "additional_info": "Bridal packages, Henna services",
+      "slug": "bharathi-beauty-salon"
+    },
+    {
+      "name": "Tamil Community Centre",
+      "category": "Community",
+      "description": "Cultural events and community gatherings",
+      "phone": "03 9314 7890",
+      "website": "https://tamilcentremelb.org",
+      "address": "987 Hopkins Street, Footscray VIC 3011",
+      "additional_info": "Event hall rental, Cultural programs",
+      "slug": "tamil-community-centre"
+    },
+    {
+      "name": "Lakshmi Textiles",
+      "category": "Clothing",
+      "description": "Traditional Indian clothing and fabrics",
+      "phone": "0445 123 789",
+      "website": "https://lakshmitextiles.com.au",
+      "address": "159 Irving Street, Footscray VIC 3011",
+      "additional_info": "Sarees, Lehengas, Custom tailoring",
+      "slug": "lakshmi-textiles"
+    },
+    {
+      "name": "Dr. Priya Clinic",
+      "category": "Healthcare",
+      "description": "General practice with Tamil speaking doctor",
+      "phone": "03 9687 2468",
+      "website": "https://drpriyaclinic.com",
+      "address": "753 Barkly Street, Footscray VIC 3011",
+      "additional_info": "Bulk billing, Family medicine",
+      "slug": "dr-priya-clinic"
+    },
+    {
+      "name": "Ganesha Sweets",
+      "category": "Food",
+      "description": "Traditional Indian sweets and snacks",
+      "phone": "0456 234 567",
+      "website": "",
+      "address": "852 Hopkins Street, Footscray VIC 3011",
+      "additional_info": "Fresh daily, Festival specials",
+      "slug": "ganesha-sweets"
+    },
+    {
+      "name": "Tamil Tuition Centre",
+      "category": "Education",
+      "description": "Tamil language classes for all ages",
+      "phone": "0467 345 891",
+      "website": "https://tamiltuition.com.au",
+      "address": "258 Geelong Road, West Footscray VIC 3012",
+      "additional_info": "Weekend classes, Online options",
+      "slug": "tamil-tuition-centre"
     }
   ]
 }
