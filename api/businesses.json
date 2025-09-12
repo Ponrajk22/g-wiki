@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-09-12T00:04:42.345723",
+  "last_updated": "2025-09-12T01:29:09.087376",
   "businesses": [
     {
       "name": "Ponraj",
@@ -110,6 +110,16 @@
       "address": "258 Geelong Road, West Footscray VIC 3012",
       "additional_info": "Weekend classes, Online options",
       "slug": "tamil-tuition-centre"
+    },
+    {
+      "name": "Seabrook fish and chips",
+      "category": "Food",
+      "description": "good food",
+      "phone": "789078234",
+      "website": "",
+      "address": "seabrook 3028",
+      "additional_info": "good chicken",
+      "slug": "seabrook-fish-and-chips"
     }
   ]
 }
